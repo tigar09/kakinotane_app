@@ -16,7 +16,7 @@ def predict(img):
 
     results = model(img, conf=0.7)
     #物体名を描画する
-    font = ImageFont.truetype(font="ipaexg00401\ipaexg.ttf", size=60)  # フォントとサイズを指定する
+    font = ImageFont.truetype(font="ipaexg00401/ipaexg.ttf", size=60)  # フォントとサイズを指定する
     draw = ImageDraw.Draw(img)
 
     #class_names : 物体検出クラス
