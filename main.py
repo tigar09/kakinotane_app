@@ -7,7 +7,7 @@ from ultralytics import YOLO
 
 
 #自作データーセットを利用して学習したデータ
-model = YOLO('./detection8n.pt')
+model = YOLO('detection8n.pt')
 # YOLOv8モデルをもとに推論する
 
 def predict(img):
@@ -18,7 +18,7 @@ def predict(img):
 
     results = model(img, conf=0.7)
     #物体名を描画する
-    font = ImageFont.truetype(font="./ipaexg00401/ipaexg.ttf", size=60)  # フォントとサイズを指定する
+    font = ImageFont.truetype(font="ipaexg00401/ipaexg.ttf", size=60)  # フォントとサイズを指定する
     draw = ImageDraw.Draw(img)
 
     #class_names : 物体検出クラス
