@@ -1,13 +1,15 @@
 # 基本ライブラリ
 import streamlit as st
-from detection import model # detection.py からネットワークの定義を読み込み
+# from detection import model # detection.py からネットワークの定義を読み込み
 from PIL import Image, ImageDraw, ImageFont
+from ultralytics import YOLO
 
 
 
 #自作データーセットを利用して学習したデータ
-
+model = YOLO('detection8n.pt')
 # YOLOv8モデルをもとに推論する
+
 def predict(img):
 
     #ネットワークの準備
