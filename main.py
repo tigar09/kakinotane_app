@@ -4,10 +4,16 @@ import streamlit as st
 from PIL import Image, ImageDraw, ImageFont
 from ultralytics import YOLO
 
+#利用できるモデルをセット
+dict_model = {'YOLOv8n': 'detection8n.pt','YOLOv8l': 'detection8l.pt','YOLOv5s': 'detection5s.pt','YOLOv5n': 'detection5n.pt','YOLOv3tiny': 'detection3tiny.pt',}
 
+#利用するモデルをラジオボタンで選択
+radio_model = st.sidebar.radio('利用するモデルを選んでください',['YOLOv8n','YOLOv8l','YOLOv5s','YOLOv5n','YOLOv3tiny'])
+
+set_model = dict_model[radio_model]
 
 #自作データーセットを利用して学習したデータ
-model = YOLO('detection8n.pt')
+model = YOLO(set_model)
 # YOLOv8モデルをもとに推論する
 
 def predict(img):
